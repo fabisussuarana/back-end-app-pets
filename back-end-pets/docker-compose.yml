@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: meu_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: fabi
+      POSTGRES_PASSWORD: fabi17
+      POSTGRES_DB: postgres
+    volumes:
+      - ./dados:/var/lib/postgresql/data

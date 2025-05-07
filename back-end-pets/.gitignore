@@ -1,0 +1,19 @@
+# Ignora a pasta node_modules
+node_modules/
+
+# Ignora o arquivo .env com variáveis sensíveis
+.env
+
+# Ignora os arquivos de log
+*.log
+
+# Ignora o diretório build ou dist
+build/
+dist/
+
+# Ignora o diretório .vscode (configurações do VSCode)
+.vscode/
+
+# Ignora dependências do PostgreSQL
+*.pgbouncer
+*.dump

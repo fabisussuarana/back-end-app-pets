@@ -4,6 +4,8 @@ node_modules/
 # Ignora o arquivo .env com variáveis sensíveis
 .env
 
+dados/
+
 # Ignora os arquivos de log
 *.log
 

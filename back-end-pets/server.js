@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Registro das rotas
-app.use('/app', router);
+app.use(router);
 
 // sincronizando o banco de dados 
 dataBase.sync()

@@ -11,3 +11,15 @@ services:
       POSTGRES_DB: postgres
     volumes:
       - ./dados:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: minha_api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: npm run dev

@@ -162,8 +162,8 @@ Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
 1. Crie um arquivo `.env` para usar:
    ```
    host: 'postgres',
-   user: 'fabi',
-   password: 'fabi17',
+   user: 'usuarioDoBanco',
+   password: 'senhaDoBanco',
    database: 'postgres'
    ```
 

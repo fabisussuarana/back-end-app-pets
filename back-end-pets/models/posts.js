@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
-import { dataBase } from '../db.js';
+import sequelize from "../config/sequelize.js";
 import Usuarios from './usuarios.js';
 import Comentarios from './comentarios.js';
 
-const Posts = dataBase.define('posts', {
+const Posts = sequelize.define('posts', {
     id_post: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

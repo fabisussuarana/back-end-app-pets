@@ -1,8 +1,9 @@
 import Sequelize from 'sequelize';
-import { dataBase } from '../db.js';
+import sequelize from "../config/sequelize.js";
+
 import Usuarios from './usuarios.js';
 
-const Comentarios = dataBase.define('comentarios', {
+const Comentarios = sequelize.define('comentarios', {
     id_comentario: {
         type: Sequelize.INTEGER,
         autoIncrement: true,

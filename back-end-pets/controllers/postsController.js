@@ -1,16 +1,18 @@
-import Posts from '../models/posts.js';
-import Usuarios from '../models/usuarios.js';
+import Posts from "../models/posts.js";
+import Usuarios from "../models/usuarios.js";
 
 const listarPosts = async (req, res) => {
   const { tipo_post, especie, sexo, raca, idade } = req.query;
 
   try {
     const posts = await Posts.findAll({
-      include: [{
-        model: Usuarios,
-        as: 'usuario_p',
-        attributes: ['id', 'nome', 'imagem'],
-      }],
+      include: [
+        {
+          model: Usuarios,
+          as: "usuario_p",
+          attributes: ["id", "nome", "imagem"],
+        },
+      ],
       where: {
         ...(tipo_post && { tipo_post }),
         ...(especie && { especie }),
@@ -32,7 +34,7 @@ const buscarPostPorId = async (req, res) => {
     if (post) {
       res.json(post);
     } else {
-      res.status(404).json({ mensagem: 'Post não encontrado' });
+      res.status(404).json({ mensagem: "Post não encontrado" });
     }
   } catch (error) {
     res.status(500).json({ erro: error.message });
@@ -42,7 +44,12 @@ const buscarPostPorId = async (req, res) => {
 const criarPost = async (req, res) => {
   const { titulo, descricao, imagem, id_usuario } = req.body;
   try {
-    const novoPost = await Posts.create({ titulo, descricao, imagem, id_usuario });
+    const novoPost = await Posts.create({
+      titulo,
+      descricao,
+      imagem,
+      id_usuario,
+    });
     res.status(201).json(novoPost);
   } catch (error) {
     res.status(500).json({ erro: error.message });
@@ -55,7 +62,7 @@ const atualizarPost = async (req, res) => {
   try {
     const post = await Posts.findByPk(id);
     if (!post) {
-      return res.status(404).json({ mensagem: 'Post não encontrado' });
+      return res.status(404).json({ mensagem: "Post não encontrado" });
     }
     await post.update({ titulo, descricao, imagem, id_usuario });
     res.json(post);
@@ -69,7 +76,7 @@ const deletarPost = async (req, res) => {
   try {
     const post = await Posts.findByPk(id);
     if (!post) {
-      return res.status(404).json({ mensagem: 'Post não encontrado' });
+      return res.status(404).json({ mensagem: "Post não encontrado" });
     }
     await post.destroy();
     res.status(204).send();

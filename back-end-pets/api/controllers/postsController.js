@@ -1,8 +1,24 @@
 import Posts from '../models/posts.js';
+import Usuarios from '../models/usuarios.js';
 
 const listarPosts = async (req, res) => {
+  const { tipo_post, especie, sexo, raca, idade } = req.query;
+
   try {
-    const posts = await Posts.findAll();
+    const posts = await Posts.findAll({
+      include: [{
+        model: Usuarios,
+        as: 'usuario_p',
+        attributes: ['id', 'nome', 'imagem'],
+      }],
+      where: {
+        ...(tipo_post && { tipo_post }),
+        ...(especie && { especie }),
+        ...(sexo && { sexo }),
+        ...(raca && { raca }),
+        ...(idade && { idade }),
+      },
+    });
     res.json(posts);
   } catch (error) {
     res.status(500).json({ erro: error.message });

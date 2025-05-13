@@ -48,6 +48,16 @@ No backend, a API permite realizar operações CRUD (Criar, Ler, Atualizar e Del
 - **Parâmetros:** `id` (número do post)  
 - **Descrição:** Retorna um único post com base no ID informado.
 
+### 🔹 Buscar post por filtro
+- **Método:** GET  
+- **URL:** `/posts?tipo_post=adocao&especie=esquilo&sexo=feminino&raca=dalmata&idade=1`  
+- **Parâmetros:** `tipo_post` (tipo do post, pode ser 'adocao' ou 'perdido')  
+- **Parâmetros:** `especie` (especie do animal)  
+- **Parâmetros:** `sexo` (sexo do animal, pode ser 'feminino' ou 'masculino')  
+- **Parâmetros:** `raca` (raca do animal)  
+- **Parâmetros:** `idade` (idade do animal)  
+- **Descrição:** Retorna os posts baseado nos parâmetros opcionais informados na url.
+
 ### 🔹 Criar um novo post
 - **Método:** POST  
 - **URL:** `/posts`  

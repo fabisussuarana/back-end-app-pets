@@ -1,5 +1,4 @@
-"use strict";
-module.exports = {
+export default {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("usuarios", {
       id: {
@@ -35,6 +34,7 @@ module.exports = {
       },
     });
   },
+
   async down(queryInterface) {
     await queryInterface.dropTable("usuarios");
   },

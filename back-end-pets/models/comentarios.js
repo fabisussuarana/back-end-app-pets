@@ -1,10 +1,10 @@
 import Sequelize from 'sequelize';
-import { dataBase } from '../db.js';
-import Usuarios from './usuarios.js';
-import Posts from './posts.js';
+import sequelize from "../config/sequelize.js";
 
-const Comentarios = dataBase.define('comentarios', {
-  id_comentario: {
+import Usuarios from './usuarios.js';
+
+const Comentarios = sequelize.define('comentarios', {
+    id_comentario: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
@@ -35,11 +35,6 @@ const Comentarios = dataBase.define('comentarios', {
 Comentarios.belongsTo(Usuarios, {
   foreignKey: 'id_usuario',
   as: 'usuario'
-});
-
-Comentarios.belongsTo(Posts, {
-  foreignKey: 'id_post',
-  as: 'post'
 });
 
 export default Comentarios;

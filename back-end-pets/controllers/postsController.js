@@ -1,3 +1,4 @@
+import Comentarios from '../models/comentarios.js';
 import Posts from '../models/posts.js';
 import Usuarios from '../models/usuarios.js';
 
@@ -6,11 +7,18 @@ const listarPosts = async (req, res) => {
 
   try {
     const posts = await Posts.findAll({
-      include: [{
-        model: Usuarios,
-        as: 'usuario_p',
-        attributes: ['id', 'nome', 'imagem'],
-      }],
+      include: [
+        {
+          model: Usuarios,
+          as: 'usuario_p',
+          attributes: ['id', 'nome', 'imagem'],
+        },
+        {
+          model: Comentarios,
+          as: 'comentarios_p',
+          attributes: ['id_comentario', 'descricao', 'status', 'id_usuario'],
+        },
+      ],
       where: {
         ...(tipo_post && { tipo_post }),
         ...(especie && { especie }),

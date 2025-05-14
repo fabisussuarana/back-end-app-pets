@@ -1,8 +1,9 @@
 import Sequelize from 'sequelize';
-import { dataBase } from '../db.js';
+import sequelize from "../config/sequelize.js";
 import Usuarios from './usuarios.js';
+import Comentarios from './comentarios.js';
 
-const Posts = dataBase.define('posts', {
+const Posts = sequelize.define('posts', {
     id_post: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -51,12 +52,19 @@ const Posts = dataBase.define('posts', {
     timestamps: false,
 });
 
+Posts.hasMany(Comentarios, {
+    foreignKey: 'id_post',
+    as: 'comentarios_p'
+});
+Comentarios.belongsTo(Posts, {
+    foreignKey: 'id_post',
+    as: 'comentarios_p'
+});
 
 Usuarios.hasMany(Posts, {
     foreignKey: 'id_usuario',
     as: 'usuario_p'
 });
-
 Posts.belongsTo(Usuarios, {
     foreignKey: 'id_usuario',
     as: 'usuario_p'

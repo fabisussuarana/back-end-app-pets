@@ -1,4 +1,4 @@
-import Dicas from '../models/dicas.js';
+import Dicas from "../models/dicas.js";
 
 const listarDicas = async (req, res) => {
   try {
@@ -16,7 +16,7 @@ const buscarDicaPorId = async (req, res) => {
     if (dica) {
       res.json(dica);
     } else {
-      res.status(404).json({ mensagem: 'Dicas não encontrado' });
+      res.status(404).json({ mensagem: "Dicas não encontrado" });
     }
   } catch (error) {
     res.status(500).json({ erro: error.message });
@@ -26,7 +26,13 @@ const buscarDicaPorId = async (req, res) => {
 const criarDica = async (req, res) => {
   const { titulo, descricao, status, imagem, id_usuario } = req.body;
   try {
-    const novaDica = await Dicas.create({ titulo, descricao, status, imagem, id_usuario });
+    const novaDica = await Dicas.create({
+      titulo,
+      descricao,
+      status,
+      imagem,
+      id_usuario,
+    });
     res.status(201).json(novaDica);
   } catch (error) {
     res.status(500).json({ erro: error.message });
@@ -39,7 +45,7 @@ const atualizarDica = async (req, res) => {
   try {
     const dica = await Dicas.findByPk(id);
     if (!dica) {
-      return res.status(404).json({ mensagem: 'Dica não encontrado' });
+      return res.status(404).json({ mensagem: "Dica não encontrado" });
     }
     await dica.update({ titulo, descricao, status });
     res.json(dica);
@@ -53,7 +59,7 @@ const deletarDica = async (req, res) => {
   try {
     const dica = await Dicas.findByPk(id);
     if (!dica) {
-      return res.status(404).json({ mensagem: 'Dica não encontrado' });
+      return res.status(404).json({ mensagem: "Dica não encontrado" });
     }
     await dica.destroy();
     res.status(204).send();

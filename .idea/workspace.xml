@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3d2f40f9-043d-4d3d-948e-d3a3c1097686" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end-pets/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end-pets/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +33,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "sequelize",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/antonio/faculdade/5periodo/desenvolvimento-de-app/back-end-app-pets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,6 +62,8 @@
       <updated>1747098188902</updated>
       <workItem from="1747098190039" duration="1137000" />
       <workItem from="1747152079127" duration="864000" />
+      <workItem from="1747187952951" duration="126000" />
+      <workItem from="1747233661055" duration="346000" />
     </task>
     <servers />
   </component>

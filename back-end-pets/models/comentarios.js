@@ -29,7 +29,7 @@ const Comentarios = sequelize.define('comentarios', {
 }, {
     freezeTableName: true,
     tableName: 'comentarios',
-    timestamps: false,
+    timestamps: true,
 });
 
 Comentarios.belongsTo(Usuarios, {

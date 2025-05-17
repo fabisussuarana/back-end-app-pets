@@ -37,7 +37,7 @@ const Dicas = sequelize.define(
   {
     freezeTableName: true,
     tableName: "dicas",
-    timestamps: false,
+    timestamps: true,
   },
 );
 

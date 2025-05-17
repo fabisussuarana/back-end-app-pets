@@ -36,7 +36,21 @@ const listarPosts = async (req, res) => {
 const buscarPostPorId = async (req, res) => {
   const { id } = req.params;
   try {
-    const post = await Posts.findByPk(id);
+    const post = await Posts.findAll({
+      include: [
+        {
+          model: Usuarios,
+          as: 'usuario_p',
+          attributes: ['id', 'nome', 'imagem'],
+        },
+        {
+          model: Comentarios,
+          as: 'comentarios_p',
+          attributes: ['id_comentario', 'descricao', 'status', 'id_usuario'],
+        },
+      ],
+      where: { id_post: id },
+    });
     if (post) {
       res.json(post);
     } else {
@@ -86,21 +100,4 @@ const deletarPost = async (req, res) => {
   }
 };
 
-const listarComentariosDePost = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const comentarios = await Comentarios.findAll({
-      where: {
-        id_post: parseInt(id, 10), // converte para número
-        status: 'ativo', // opcional, se quiser filtrar por status
-      },
-    });
-
-    res.json(comentarios);
-  } catch (error) {
-    res.status(500).json({ erro: error.message });
-  }
-};
-
-export { listarPosts, buscarPostPorId, criarPost, atualizarPost, deletarPost, listarComentariosDePost };
+export { listarPosts, buscarPostPorId, criarPost, atualizarPost, deletarPost };

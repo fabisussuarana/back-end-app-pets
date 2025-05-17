@@ -49,7 +49,7 @@ const Posts = sequelize.define('posts', {
 }, {
     freezeTableName: true,
     tableName: 'posts',
-    timestamps: false,
+    timestamps: true,
 });
 
 Posts.hasMany(Comentarios, {

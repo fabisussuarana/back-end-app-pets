@@ -1,4 +1,5 @@
 import Usuarios from "../models/usuarios.js";
+import bcrypt from 'bcrypt';
 
 const listarUsuarios = async (request, response) => {
   await Usuarios.findAll({
@@ -26,15 +27,33 @@ const buscarUsuarioPorId = async (request, response) => {
   }
 };
 
-const criarUsuario = async (request, response) => {
-  const { nome, sobrenome, imagem, telefone, email } = request.body;
+const perfil = async (req, res) => {
   try {
+    const usuario = await Usuarios.findByPk(req.usuario.id, {
+      attributes: ['id', 'nome', 'email', 'imagem']
+    });
+
+    if (!usuario) {
+      return res.status(404).json({ erro: 'Usuário não encontrado' });
+    }
+
+    res.json(usuario);
+  } catch (error) {
+    res.status(500).json({ erro: error.message });
+  }
+};
+
+const criarUsuario = async (request, response) => {
+  const { nome, sobrenome, imagem, telefone, email, senha } = request.body;
+  try {
+    const senhaHash = await bcrypt.hash(senha, 10);
     const novoUsuario = await Usuarios.create({
       nome,
       sobrenome,
       imagem,
       telefone,
       email,
+      senha: senhaHash,
     });
     return response.status(201).json(novoUsuario);
   } catch (error) {
@@ -77,4 +96,5 @@ export {
   criarUsuario,
   deletarUsuario,
   atualizarUsuario,
+  perfil
 };

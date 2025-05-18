@@ -4,6 +4,7 @@ import {
   criarUsuario,
   deletarUsuario,
   atualizarUsuario,
+  perfil,
 } from "../controllers/usuarioController.js";
 import {
   listarPosts,
@@ -27,6 +28,8 @@ import {
   deletarDica,
 } from "../controllers/dicasController.js";
 import { Router } from "express";
+import autenticarToken from "../middlewares/autenticarToken.js";
+import { login } from "../controllers/authController.js";
 
 // inicializando rotas
 const router = Router();
@@ -34,11 +37,18 @@ const router = Router();
 router.get("/", (req, res) => {
   res.send("Rotas funcionando!");
 });
-router.get("/usuarios", listarUsuarios)
-      .get("/usuarios/:id", buscarUsuarioPorId);
+
 router.post("/usuarios", criarUsuario);
+router.post("/login", login);
+
+router.use(autenticarToken); // aplica para todas abaixo
+
+router.get("/perfil", perfil);
 router.put("/usuarios/:id", atualizarUsuario);
 router.delete("/usuarios/:id", deletarUsuario);
+
+router.get("/usuarios", listarUsuarios)
+      .get("/usuarios/:id", buscarUsuarioPorId);
 
 router.get("/posts", listarPosts)
       .get("/posts/:id", buscarPostPorId);

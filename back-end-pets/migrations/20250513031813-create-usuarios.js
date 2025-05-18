@@ -1,3 +1,5 @@
+import Sequelize from "sequelize";
+
 export default {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("usuarios", {
@@ -21,6 +23,10 @@ export default {
       },
       email: {
         type: Sequelize.STRING,
+      },
+      senha: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

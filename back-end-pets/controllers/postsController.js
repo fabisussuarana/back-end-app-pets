@@ -107,4 +107,21 @@ const deletarPost = async (req, res) => {
   }
 };
 
-export { listarPosts, buscarPostPorId, criarPost, atualizarPost, deletarPost };
+const listarComentariosDePost = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const comentarios = await Comentarios.findAll({
+      where: {
+        id_post: parseInt(id, 10), // converte para número
+        status: 'ativo', // opcional, se quiser filtrar por status
+      },
+    });
+
+    res.json(comentarios);
+  } catch (error) {
+    res.status(500).json({ erro: error.message });
+  }
+};
+
+export { listarPosts, buscarPostPorId, criarPost, atualizarPost, deletarPost, listarComentariosDePost };

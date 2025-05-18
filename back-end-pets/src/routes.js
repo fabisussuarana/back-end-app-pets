@@ -11,7 +11,7 @@ import {
   buscarPostPorId,
   criarPost,
   atualizarPost,
-  deletarPost,
+  deletarPost, listarComentariosDePost,
 } from "../controllers/postsController.js";
 import {
   listarComentarios,
@@ -52,6 +52,7 @@ router.get("/usuarios", listarUsuarios)
 
 router.get("/posts", listarPosts)
       .get("/posts/:id", buscarPostPorId);
+router.get("/posts/:id/comentarios", listarComentariosDePost);
 router.post("/posts", criarPost);
 router.put("/posts/:id", atualizarPost);
 router.delete("/posts/:id", deletarPost);

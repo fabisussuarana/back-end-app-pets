@@ -41,9 +41,13 @@ const Dicas = sequelize.define(
   },
 );
 
+Usuarios.hasMany(Dicas, {
+  foreignKey: "id_usuario",
+  as: "usuario_d",
+});
 Dicas.belongsTo(Usuarios, {
   foreignKey: "id_usuario",
-  as: "usuario",
+  as: "usuario_d",
 });
 
 export default Dicas;

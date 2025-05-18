@@ -1,8 +1,17 @@
 import Comentarios from "../models/comentarios.js";
+import Usuarios from "../models/usuarios.js";
 
 const listarComentarios = async (req, res) => {
-  try {
-    const comentarios = await Comentarios.findAll();
+  try { 
+    const comentarios = await Comentarios.findAll({
+      include: [
+        {
+          model: Usuarios,
+          as: "usuario_c",
+          attributes: ["id", "nome", "imagem"],
+        },
+      ],
+    });
     res.json(comentarios);
   } catch (error) {
     res.status(500).json({ erro: error.message });
@@ -12,7 +21,16 @@ const listarComentarios = async (req, res) => {
 const buscarComentarioPorId = async (req, res) => {
   const { id } = req.params;
   try {
-    const comentario = await Comentarios.findByPk(id);
+    const comentario = await Comentarios.findAll({
+      include: [
+        {
+          model: Usuarios,
+          as: "usuario_c",
+          attributes: ["id", "nome", "imagem"],
+        },
+      ],
+      where: { id_comentario: id },
+    });
     if (comentario) {
       res.json(comentario);
     } else {

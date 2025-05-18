@@ -1,8 +1,17 @@
 import Dicas from "../models/dicas.js";
+import Usuarios from "../models/usuarios.js";
 
 const listarDicas = async (req, res) => {
   try {
-    const dicas = await Dicas.findAll();
+    const dicas = await Dicas.findAll({
+      include: [
+        {
+          model: Usuarios,
+          as: "usuario_d",
+          attributes: ["id", "nome", "imagem"],
+        },
+      ],
+    });
     res.json(dicas);
   } catch (error) {
     res.status(500).json({ erro: error.message });
@@ -12,7 +21,16 @@ const listarDicas = async (req, res) => {
 const buscarDicaPorId = async (req, res) => {
   const { id } = req.params;
   try {
-    const dica = await Dicas.findByPk(id);
+    const dica = await Dicas.findByPk({
+      include: [
+        {
+          model: Usuarios,
+          as: "usuario_d",
+          attributes: ["id", "nome", "imagem"],
+        },
+      ],
+      where: { id_dicas: id },
+    });
     if (dica) {
       res.json(dica);
     } else {

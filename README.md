@@ -57,7 +57,7 @@ No backend, a API permite realizar operações CRUD (Criar, Ler, Atualizar e Del
 - **Parâmetros:** `raca` (raca do animal)  
 - **Parâmetros:** `idade` (idade do animal)  
 - **Descrição:** Retorna os posts baseado nos parâmetros opcionais informados na url.
-- **OBS.:** Todos os parâmetros sãoopcionais,ou seja, se não passar nada, ele não filtra com base nos parâmetros, traz todos os dados.
+- **OBS.:** Todos os parâmetros são opcionais, ou seja, se não passar nada, ele não filtra com base nos parâmetros, só traz todos os dados.
 
 ### 🔹 Criar um novo post
 - **Método:** POST  

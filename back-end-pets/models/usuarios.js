@@ -30,10 +30,6 @@ const Usuarios = sequelize.define(
       type: Sequelize.STRING,
       allowNull: true,
     },
-    // senha: {
-    //     type: Sequelize.STRING,
-    //     allowNull: true
-    // },
   },
   {
     freezeTableName: true,

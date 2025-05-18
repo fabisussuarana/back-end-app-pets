@@ -17,6 +17,13 @@ const listarPosts = async (req, res) => {
           model: Comentarios,
           as: 'comentarios_p',
           attributes: ['id_comentario', 'descricao', 'status', 'id_usuario'],
+          include: [
+            {
+              model: Usuarios,
+              as: 'usuario_c',
+              attributes: ['id', 'nome', 'imagem'],
+            },
+          ],
         },
       ],
       where: {
@@ -62,9 +69,9 @@ const buscarPostPorId = async (req, res) => {
 };
 
 const criarPost = async (req, res) => {
-  const { titulo, descricao, imagem, id_usuario } = req.body;
+  const { titulo, descricao, imagem, id_usuario, tipo_post, especie, sexo, raca, idade } = req.body;
   try {
-    const novoPost = await Posts.create({ titulo, descricao, imagem, id_usuario });
+    const novoPost = await Posts.create({ titulo, descricao, imagem, id_usuario, tipo_post, especie, sexo, raca, idade });
     res.status(201).json(novoPost);
   } catch (error) {
     res.status(500).json({ erro: error.message });

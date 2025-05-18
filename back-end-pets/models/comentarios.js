@@ -32,9 +32,13 @@ const Comentarios = sequelize.define('comentarios', {
     timestamps: true,
 });
 
+Usuarios.hasMany(Comentarios, {
+  foreignKey: 'id_usuario',
+  as: 'usuario_c',
+});
 Comentarios.belongsTo(Usuarios, {
   foreignKey: 'id_usuario',
-  as: 'usuario'
+  as: 'usuario_c',
 });
 
 export default Comentarios;

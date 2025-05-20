@@ -112,6 +112,13 @@ const listarComentariosDePost = async (req, res) => {
 
   try {
     const comentarios = await Comentarios.findAll({
+      include: [
+        {
+          model: Usuarios,
+          as: 'usuario_c',
+          attributes: ['id', 'nome', 'imagem'],
+        },
+      ],
       where: {
         id_post: parseInt(id, 10), // converte para número
         status: 'ativo', // opcional, se quiser filtrar por status

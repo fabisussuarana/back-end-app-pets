@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d64bb28b-06fc-4365-aa82-52be9306e6d5" name="Changes" comment=":fire: fix: inclui dados faltantes em tabelas de posts e padroniza migrations para ES Modules">
+    <list default="true" id="d64bb28b-06fc-4365-aa82-52be9306e6d5" name="Changes" comment=":fire: fix: ajusta migration e seed de usuarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,24 +27,24 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "sequelize",
-    "last_opened_file_path": "/home/antonio/Development/freelas/tradermoney",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/home/antonio/.nvm/versions/node/v22.13.1/bin/node",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/home/antonio/.nvm/versions/node/v22.13.1/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/opt/webstorm/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/antonio/Development/freelas/tradermoney&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/home/antonio/.nvm/versions/node/v22.13.1/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/antonio/.nvm/versions/node/v22.13.1/lib/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/opt/webstorm/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/models" />
@@ -69,6 +69,10 @@
       <workItem from="1747103556555" duration="6859000" />
       <workItem from="1747110666239" duration="213000" />
       <workItem from="1747148206405" duration="67000" />
+      <workItem from="1747602356813" duration="5291000" />
+      <workItem from="1747672374702" duration="15000" />
+      <workItem from="1747695260545" duration="29000" />
+      <workItem from="1747703989020" duration="21000" />
     </task>
     <task id="LOCAL-00001" summary="!!:wrench: chore: configura e instala sequelize">
       <option name="closed" value="true" />
@@ -94,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747109803625</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary=":fire: fix: ajusta migration e seed de usuarios">
+      <option name="closed" value="true" />
+      <created>1747603871959</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747603871959</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +118,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="!!:wrench: chore: configura e instala sequelize" />
     <MESSAGE value=":fire: fix: inclui dados faltantes em tabelas de posts e padroniza migrations para ES Modules" />
-    <option name="LAST_COMMIT_MESSAGE" value=":fire: fix: inclui dados faltantes em tabelas de posts e padroniza migrations para ES Modules" />
+    <MESSAGE value=":fire: fix: ajusta migration e seed de usuarios" />
+    <option name="LAST_COMMIT_MESSAGE" value=":fire: fix: ajusta migration e seed de usuarios" />
   </component>
 </project>

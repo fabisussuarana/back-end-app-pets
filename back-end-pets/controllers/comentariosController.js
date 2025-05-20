@@ -1,5 +1,6 @@
 import Comentarios from "../models/comentarios.js";
 import Usuarios from "../models/usuarios.js";
+import jwt from "jsonwebtoken";
 
 const listarComentarios = async (req, res) => {
   try { 
@@ -42,14 +43,24 @@ const buscarComentarioPorId = async (req, res) => {
 };
 
 const criarComentario = async (req, res) => {
-  const { descricao, id_post, id_usuario, status } = req.body;
+  const { descricao, id_post, status } = req.body;
+
   try {
+    const token = req.headers.authorization?.split(" ")[1];
+    if (!token) {
+      return res.status(401).json({ mensagem: "Token não fornecido" });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const id_usuario = decoded.id;
+
     const novoComentario = await Comentarios.create({
       descricao,
       id_post,
       id_usuario,
       status,
     });
+
     res.status(201).json(novoComentario);
   } catch (error) {
     res.status(500).json({ erro: error.message });

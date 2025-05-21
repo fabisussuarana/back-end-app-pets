@@ -1,73 +1,73 @@
 export const up = async (queryInterface, Sequelize) => {
   await queryInterface.bulkInsert("dicas", [
     {
-      titulo: "Como economizar água na sua casa",
-      descricao: "Feche a torneira enquanto escova os dentes, tome banhos mais curtos e reutilize a água da máquina de lavar para limpar áreas externas. Pequenas ações fazem grande diferença para o meio ambiente!",
+      titulo: "Como manter seu pet hidratado",
+      descricao: "Deixe sempre potes com água limpa e fresca em locais acessíveis, principalmente nos dias mais quentes. Fontes de água corrente também são ótimas opções para estimular o consumo.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1519699047748-de8e457a634e",
+      imagem: "https://images.unsplash.com/photo-1583511666445-775f1f2116f5",
       id_usuario: 1, // Relacionando ao usuário João
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      titulo: "Dicas para cuidar de plantas de interior",
-      descricao: "Para manter suas plantas saudáveis, verifique a umidade do solo antes de regar, posicione-as de acordo com a necessidade de luz de cada espécie e limpe as folhas regularmente para remover o pó.",
+      titulo: "Escovação adequada dos pelos",
+      descricao: "Escove seu pet regularmente para remover pelos soltos e evitar nós. Isso também ajuda a reduzir a quantidade de pelos espalhados pela casa.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1463320898484-cdee8141c787",
+      imagem: "https://images.unsplash.com/photo-1601758123927-196edb17b5a1",
       id_usuario: 2, // Relacionando ao usuário Maria
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      titulo: "Como organizar sua rotina de trabalho",
-      descricao: "Estabeleça prioridades, use a técnica pomodoro (25 minutos de foco seguidos por 5 minutos de descanso) e prepare sua lista de tarefas na noite anterior para um dia mais produtivo.",
+      titulo: "Alimentação saudável para cães e gatos",
+      descricao: "Ofereça rações de qualidade, evite alimentos humanos e consulte sempre um veterinário antes de mudar a dieta. Petiscos naturais são boas opções de agrado.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b",
+      imagem: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2",
       id_usuario: 3, // Relacionando ao usuário Carlos
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      titulo: "Receita de smoothie energético para o café da manhã",
-      descricao: "Misture uma banana, meia xícara de espinafre, uma colher de pasta de amendoim, uma colher de mel e leite vegetal a gosto. Rico em nutrientes e pronto em menos de 5 minutos!",
+      titulo: "Enriquecimento ambiental para pets",
+      descricao: "Brinquedos interativos, túneis e esconderijos ajudam a manter seu pet mentalmente estimulado e feliz. Enriquecimento é essencial, principalmente para pets que ficam sozinhos.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1502741224143-90386d7f8c82",
+      imagem: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee",
       id_usuario: 4, // Relacionando ao usuário Ana
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      titulo: "Como manter a motivação para exercícios físicos",
-      descricao: "Escolha atividades que você realmente goste, estabeleça metas realistas, encontre um parceiro de treino e celebre seus progressos, por menores que sejam.",
+      titulo: "Passeios seguros com seu cão",
+      descricao: "Use coleira adequada, evite horários muito quentes, leve saquinhos para recolher as fezes e esteja atento ao ambiente ao redor para garantir a segurança.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1538805060514-97d9cc17730c",
+      imagem: "https://images.unsplash.com/photo-1608137681981-d66d8f49b6c1",
       id_usuario: 5, // Relacionando ao usuário Pedro
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      titulo: "Cuidados essenciais com seu pet durante o verão",
-      descricao: "Mantenha sempre água fresca disponível, evite passeios nos horários mais quentes do dia, crie áreas sombreadas e nunca deixe seu animal no carro fechado.",
+      titulo: "Importância da vacinação em dia",
+      descricao: "Vacinas protegem seu pet contra diversas doenças graves. Mantenha o cartão de vacinação atualizado e siga as orientações do veterinário.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1450778869180-41d0601e046e",
+      imagem: "https://images.unsplash.com/photo-1619983081563-b64f2d59f3b4",
       id_usuario: 1, // Relacionando ao usuário João
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      titulo: "Como iniciar uma horta em espaços pequenos",
-      descricao: "Comece com ervas aromáticas em vasos pequenos, aproveite a luz natural das janelas e utilize compostagem caseira para fertilizar o solo naturalmente.",
+      titulo: "Como lidar com o medo de fogos de artifício",
+      descricao: "Crie um ambiente seguro e silencioso para seu pet. Use sons calmantes, feromônios sintéticos e consulte um veterinário sobre opções de tratamento.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735",
+      imagem: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d",
       id_usuario: 2, // Relacionando ao usuário Maria
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      titulo: "Dicas para dormir melhor",
-      descricao: "Mantenha um horário regular para dormir e acordar, evite telas por pelo menos uma hora antes de dormir e crie um ambiente escuro, silencioso e fresco no quarto.",
+      titulo: "Higiene bucal dos pets",
+      descricao: "Escove os dentes do seu pet com produtos específicos e ofereça brinquedos mastigáveis. A saúde bucal evita problemas mais sérios no futuro.",
       status: "ativo",
-      imagem: "https://images.unsplash.com/photo-1531353826977-0941b4779a1c",
+      imagem: "https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2",
       id_usuario: 3, // Relacionando ao usuário Carlos
       createdAt: new Date(),
       updatedAt: new Date(),

@@ -1,7 +1,7 @@
 export const up = async (queryInterface, Sequelize) => {
   await queryInterface.bulkInsert("comentarios", [
     {
-      descricao: "Comentário no Post 1",
+      descricao: "Que lindinho! Tomara que encontre um lar logo 🐶❤️",
       id_usuario: 2,
       id_post: 1,
       status: "ativo",
@@ -9,7 +9,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 1",
+      descricao: "Compartilhei no meu grupo de bairro. Boa sorte!",
       id_usuario: 3,
       id_post: 1,
       status: "ativo",
@@ -17,7 +17,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 1",
+      descricao: "Se eu pudesse adotava todos 😢",
       id_usuario: 4,
       id_post: 1,
       status: "ativo",
@@ -25,7 +25,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 1",
+      descricao: "Onde foi visto pela última vez? Posso ajudar nas buscas!",
       id_usuario: 5,
       id_post: 1,
       status: "ativo",
@@ -33,7 +33,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 2",
+      descricao: "Já tive um igualzinho, espero que ele volte logo 🙏",
       id_usuario: 3,
       id_post: 2,
       status: "ativo",
@@ -41,7 +41,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 2",
+      descricao: "Adorei a iniciativa! Adoção responsável muda vidas!",
       id_usuario: 2,
       id_post: 2,
       status: "ativo",
@@ -49,7 +49,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 2",
+      descricao: "Tem mais fotos? Queria mostrar pra minha irmã, ela quer adotar.",
       id_usuario: 1,
       id_post: 2,
       status: "ativo",
@@ -57,7 +57,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 2",
+      descricao: "Já repassei para meus amigos da ONG, torcendo por ele!",
       id_usuario: 4,
       id_post: 2,
       status: "ativo",
@@ -65,7 +65,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 2",
+      descricao: "Tem contato do responsável? Quero conversar sobre a adoção.",
       id_usuario: 4,
       id_post: 2,
       status: "ativo",
@@ -73,7 +73,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 2",
+      descricao: "Muito triste ver isso acontecendo, mas que bom que existe essa plataforma ❤️",
       id_usuario: 1,
       id_post: 2,
       status: "ativo",
@@ -81,7 +81,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 2",
+      descricao: "Já vi esse cachorrinho na praça ontem! Dei água pra ele!",
       id_usuario: 2,
       id_post: 2,
       status: "ativo",
@@ -89,7 +89,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 3",
+      descricao: "Que post lindo, parabéns por ajudar esses animais 🐾",
       id_usuario: 1,
       id_post: 3,
       status: "ativo",
@@ -97,7 +97,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 3",
+      descricao: "Mais gente deveria pensar como você! Adoção é um ato de amor.",
       id_usuario: 5,
       id_post: 3,
       status: "ativo",
@@ -105,7 +105,7 @@ export const up = async (queryInterface, Sequelize) => {
       updatedAt: new Date(),
     },
     {
-      descricao: "Comentário no Post 3",
+      descricao: "Se precisar de ajuda com ração ou cuidados, me chama.",
       id_usuario: 2,
       id_post: 3,
       status: "ativo",

@@ -1,6 +1,7 @@
 import Comentarios from '../models/comentarios.js';
 import Posts from '../models/posts.js';
 import Usuarios from '../models/usuarios.js';
+import jwt from "jsonwebtoken";
 
 const listarPosts = async (req, res) => {
   const { tipo_post, especie, sexo, raca, idade } = req.query;
@@ -71,9 +72,9 @@ const buscarPostPorId = async (req, res) => {
 const criarPost = async (req, res) => {
   const { titulo, descricao, imagem, tipo_post, especie, sexo, raca, idade } = req.body;
   try {
-    const token = req.headers.authorization?.split(' ')[1];
+    const token = req.headers.authorization?.split(" ")[1];
     if (!token) {
-      return res.status(401).json({ mensagem: 'Token não fornecido' });
+      return res.status(401).json({ mensagem: "Token não fornecido" });
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

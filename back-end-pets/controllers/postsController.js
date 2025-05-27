@@ -69,9 +69,28 @@ const buscarPostPorId = async (req, res) => {
 };
 
 const criarPost = async (req, res) => {
-  const { titulo, descricao, imagem, id_usuario, tipo_post, especie, sexo, raca, idade } = req.body;
+  const { titulo, descricao, imagem, tipo_post, especie, sexo, raca, idade } = req.body;
   try {
-    const novoPost = await Posts.create({ titulo, descricao, imagem, id_usuario, tipo_post, especie, sexo, raca, idade });
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ mensagem: 'Token não fornecido' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const id_usuario = decoded.id;
+
+    const novoPost = await Posts.create({ 
+      titulo, 
+      descricao, 
+      imagem, 
+      id_usuario,
+      tipo_post, 
+      especie, 
+      sexo, 
+      raca, 
+      idade 
+    });
+    
     res.status(201).json(novoPost);
   } catch (error) {
     res.status(500).json({ erro: error.message });

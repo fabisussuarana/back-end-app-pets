@@ -30,6 +30,8 @@ import {
 import { Router } from "express";
 import autenticarToken from "../middlewares/autenticarToken.js";
 import { login } from "../controllers/authController.js";
+import uploadImage from "../controllers/uploadController.js";
+import upload from "../config/multerConfig.js";
 
 // inicializando rotas
 const router = Router();
@@ -53,7 +55,7 @@ router.get("/usuarios", listarUsuarios)
 router.get("/posts", listarPosts)
       .get("/posts/:id", buscarPostPorId);
 router.get("/posts/:id/comentarios", listarComentariosDePost);
-router.post("/posts", criarPost);
+router.post("/posts", upload.single('image'), criarPost);
 router.put("/posts/:id", atualizarPost);
 router.delete("/posts/:id", deletarPost);
 
@@ -68,5 +70,6 @@ router.get("/dicas", listarDicas)
 router.post("/dicas", criarDica);
 router.put("/dicas/:id", atualizarDica);
 router.delete("/dicas/:id", deletarDica);
+
 
 export default router;

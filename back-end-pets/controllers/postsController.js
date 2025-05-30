@@ -69,7 +69,9 @@ const buscarPostPorId = async (req, res) => {
 };
 
 const criarPost = async (req, res) => {
-  const { titulo, descricao, imagem, id_usuario, tipo_post, especie, sexo, raca, idade } = req.body;
+  const { titulo, descricao, id_usuario, tipo_post, especie, sexo, raca, idade } = req.body;
+  const imagem = req.file ? `/uploads/${req.file.filename}` : null;
+
   try {
     const novoPost = await Posts.create({ titulo, descricao, imagem, id_usuario, tipo_post, especie, sexo, raca, idade });
     res.status(201).json(novoPost);

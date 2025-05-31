@@ -67,7 +67,7 @@ router.delete("/comentarios/:id", deletarComentario);
 
 router.get("/dicas", listarDicas)
       .get("/dicas/:id", buscarDicaPorId);
-router.post("/dicas", criarDica);
+router.post("/dicas", upload.single('image'), criarDica);
 router.put("/dicas/:id", atualizarDica);
 router.delete("/dicas/:id", deletarDica);
 

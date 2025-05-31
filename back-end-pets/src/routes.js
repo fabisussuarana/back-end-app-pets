@@ -40,7 +40,7 @@ router.get("/", (req, res) => {
   res.send("Rotas funcionando!");
 });
 
-router.post("/usuarios", criarUsuario);
+router.post("/usuarios", upload.single('image'), criarUsuario);
 router.post("/login", login);
 
 router.use(autenticarToken); // aplica para todas abaixo

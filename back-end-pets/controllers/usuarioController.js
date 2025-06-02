@@ -47,7 +47,7 @@ const criarUsuario = async (request, response) => {
   const { nome, sobrenome, telefone, email, senha } = request.body;
   try {
     const senhaHash = await bcrypt.hash(senha, 10);
-    const imagem = req.file ? `/uploads/${req.file.filename}` : null;
+    const imagem = request.file ? `/uploads/${request.file.filename}` : null;
 
     const novoUsuario = await Usuarios.create({
       nome,

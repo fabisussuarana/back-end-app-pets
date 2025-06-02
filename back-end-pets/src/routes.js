@@ -40,12 +40,12 @@ router.get("/", (req, res) => {
   res.send("Rotas funcionando!");
 });
 
-router.post("/usuarios", upload.single('image'), criarUsuario);
 router.post("/login", login);
 
 router.use(autenticarToken); // aplica para todas abaixo
 
 router.get("/perfil", perfil);
+router.post("/usuarios", upload.single('image'), criarUsuario);
 router.put("/usuarios/:id", atualizarUsuario);
 router.delete("/usuarios/:id", deletarUsuario);
 

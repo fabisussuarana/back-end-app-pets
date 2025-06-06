@@ -31,30 +31,6 @@ export const up = async (queryInterface, Sequelize) => {
       id_usuario: 4,
       createdAt: new Date(),
       updatedAt: new Date(),
-    },
-    {
-      titulo: "Antes e depois do resgate",
-      descricao: "Veja a transformação incrível do nosso querido Simba após alguns meses de cuidados!",
-      imagem: "https://images.unsplash.com/photo-1574158622682-e40e69881006",
-      id_usuario: 5,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      titulo: "Filhotes disponíveis para adoção",
-      descricao: "Cinco filhotes lindos e brincalhões estão procurando um lar. Adote e mude uma vida!",
-      imagem: "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb",
-      id_usuario: 1,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      titulo: "Ajude a encontrar a Mel",
-      descricao: "A Mel é uma poodle branca que sumiu ontem à noite no bairro Jardim das Flores. Qualquer informação será de grande ajuda.",
-      imagem: "https://images.unsplash.com/photo-1601758123927-196edb17b5a1",
-      id_usuario: 2,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     }
   ]);
 };

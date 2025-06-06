@@ -42,7 +42,9 @@ const buscarDicaPorId = async (req, res) => {
 };
 
 const criarDica = async (req, res) => {
-  const { titulo, descricao, status, imagem, id_usuario } = req.body;
+  const { titulo, descricao, status, id_usuario } = req.body;
+  const imagem = req.file ? `/uploads/${req.file.filename}` : null;
+
   try {
     const novaDica = await Dicas.create({
       titulo,

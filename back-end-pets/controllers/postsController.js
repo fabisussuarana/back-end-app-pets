@@ -70,7 +70,9 @@ const buscarPostPorId = async (req, res) => {
 };
 
 const criarPost = async (req, res) => {
-  const { titulo, descricao, imagem, tipo_post, especie, sexo, raca, idade } = req.body;
+  const { titulo, descricao, id_usuario, tipo_post, especie, sexo, raca, idade } = req.body;
+  const imagem = req.file ? `src/uploads/${req.file.filename}` : null;
+
   try {
     const token = req.headers.authorization?.split(" ")[1];
     if (!token) {

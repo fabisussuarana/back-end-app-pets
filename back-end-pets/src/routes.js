@@ -41,11 +41,11 @@ router.get("/", (req, res) => {
 });
 
 router.post("/login", login);
+router.post("/usuarios", upload.single('image'), criarUsuario);
 
 router.use(autenticarToken); // aplica para todas abaixo
 
 router.get("/perfil", perfil);
-router.post("/usuarios", upload.single('image'), criarUsuario);
 router.put("/usuarios/:id", atualizarUsuario);
 router.delete("/usuarios/:id", deletarUsuario);
 

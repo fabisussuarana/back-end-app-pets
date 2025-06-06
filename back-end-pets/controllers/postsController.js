@@ -12,7 +12,7 @@ const listarPosts = async (req, res) => {
         {
           model: Usuarios,
           as: 'usuario_p',
-          attributes: ['id', 'nome', 'imagem'],
+          attributes: ['id', 'nome', 'imagem', 'telefone'],
         },
         {
           model: Comentarios,

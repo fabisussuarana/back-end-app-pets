@@ -80,11 +80,25 @@ const deletarUsuario = async (request, response) => {
 const atualizarUsuario = async (request, response) => {
   const { id } = request.params;
   const { nome, sobrenome, imagem, telefone, email } = request.body;
+
+  const token = request.headers.authorization?.split(" ")[1];
+  if (!token) {
+    return response.status(401).json({ mensagem: "Token não fornecido" });
+  }
+
   try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const id_usuario = decoded.id;
+
+    if (parseInt(id) !== id_usuario) {
+      return response.status(403).json({ mensagem: "Ação não permitida" });
+    }
+
     const usuario = await Usuarios.findByPk(id);
     if (!usuario) {
       return response.status(404).json({ mensagem: "Usuário não encontrado" });
     }
+
     await usuario.update({ nome, sobrenome, imagem, telefone, email });
     return response.status(200).json(usuario);
   } catch (error) {

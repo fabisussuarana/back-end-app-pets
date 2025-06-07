@@ -102,13 +102,27 @@ const criarPost = async (req, res) => {
 
 const atualizarPost = async (req, res) => {
   const { id } = req.params;
-  const { titulo, descricao, imagem, id_usuario } = req.body;
+  const { titulo, descricao, imagem, tipo_post, especie, sexo, raca, idade } = req.body;
+
   try {
+    const token = req.headers.authorization?.split(" ")[1];
+    if (!token) {
+      return res.status(401).json({ mensagem: "Token não fornecido" });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const id_usuario = decoded.id;
+
     const post = await Posts.findByPk(id);
     if (!post) {
       return res.status(404).json({ mensagem: 'Post não encontrado' });
     }
-    await post.update({ titulo, descricao, imagem, id_usuario });
+
+    if (post.id_usuario !== id_usuario) {
+      return res.status(403).json({ mensagem: 'Você não tem permissão para atualizar este post' });
+    }
+
+    await post.update({ titulo, descricao, imagem, tipo_post, especie, sexo, raca, idade });
     res.json(post);
   } catch (error) {
     res.status(500).json({ erro: error.message });

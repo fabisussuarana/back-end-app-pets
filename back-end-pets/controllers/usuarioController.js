@@ -102,7 +102,7 @@ const atualizarUsuario = async (request, response) => {
     if (telefone && telefone.trim() !== '') updatedData.telefone = telefone;
 
     // Validação de senha
-    if (senhaNova !== undefined) {
+    if (senhaNova !== '') {
       if (senhaNova.trim() === '') {
         return response.status(400).json({ mensagem: "Nova senha não pode ser vazia" });
       }

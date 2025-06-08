@@ -1,5 +1,6 @@
 import Usuarios from "../models/usuarios.js";
 import bcrypt from 'bcrypt';
+import jwt from "jsonwebtoken";
 
 const listarUsuarios = async (request, response) => {
   await Usuarios.findAll({
@@ -78,8 +79,7 @@ const deletarUsuario = async (request, response) => {
 };
 
 const atualizarUsuario = async (request, response) => {
-  const { id } = request.params;
-  const { nome, sobrenome, imagem, telefone, email } = request.body;
+  const { nome, sobrenome, telefone, senhaNova, senhaAtual } = request.body;
 
   const token = request.headers.authorization?.split(" ")[1];
   if (!token) {
@@ -90,21 +90,44 @@ const atualizarUsuario = async (request, response) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const id_usuario = decoded.id;
 
-    if (parseInt(id) !== id_usuario) {
-      return response.status(403).json({ mensagem: "Ação não permitida" });
-    }
-
-    const usuario = await Usuarios.findByPk(id);
+    const usuario = await Usuarios.findByPk(id_usuario);
     if (!usuario) {
       return response.status(404).json({ mensagem: "Usuário não encontrado" });
     }
 
-    await usuario.update({ nome, sobrenome, imagem, telefone, email });
+    const updatedData = {};
+
+    if (nome && nome.trim() !== '') updatedData.nome = nome;
+    if (sobrenome && sobrenome.trim() !== '') updatedData.sobrenome = sobrenome;
+    if (telefone && telefone.trim() !== '') updatedData.telefone = telefone;
+
+    // Validação de senha
+    if (senhaNova !== undefined) {
+      if (senhaNova.trim() === '') {
+        return response.status(400).json({ mensagem: "Nova senha não pode ser vazia" });
+      }
+
+      if (!senhaAtual || senhaAtual.trim() === '') {
+        return response.status(400).json({ mensagem: "Senha atual não fornecida ou inválida" });
+      }
+
+      const senhaValida = await bcrypt.compare(senhaAtual, usuario.senha);
+      if (!senhaValida) {
+        return response.status(400).json({ mensagem: "Senha atual inválida" });
+      }
+
+      const senhaHash = await bcrypt.hash(senhaNova, 10);
+      updatedData.senha = senhaHash;
+    }
+
+    await usuario.update(updatedData);
+
     return response.status(200).json(usuario);
   } catch (error) {
     return response.status(500).json({ erro: error.message });
   }
 };
+
 
 export {
   listarUsuarios,

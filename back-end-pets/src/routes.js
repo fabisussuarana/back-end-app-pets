@@ -46,7 +46,7 @@ router.post("/usuarios", upload.single('image'), criarUsuario);
 router.use(autenticarToken); // aplica para todas abaixo
 
 router.get("/perfil", perfil);
-router.put("/usuarios/:id", atualizarUsuario);
+router.put("/usuarios", atualizarUsuario);
 router.delete("/usuarios/:id", deletarUsuario);
 
 router.get("/usuarios", listarUsuarios)
